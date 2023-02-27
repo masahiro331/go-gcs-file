@@ -38,6 +38,8 @@ func (f *File) ReadAt(p []byte, off int64) (n int, err error) {
 	if err != nil {
 		return 0, err
 	}
+	defer r.Close()
+
 	return r.Read(p)
 }
 
